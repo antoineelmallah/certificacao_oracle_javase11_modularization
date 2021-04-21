@@ -16,4 +16,7 @@
  */
 
 module labs.client {
+    requires java.logging;
+    requires labs.pm;
+    uses labs.pm.service.ProductManager;
 }

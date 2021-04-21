@@ -21,14 +21,12 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
-import labs.client.ResourceFormatter;
 import labs.pm.data.Drink;
 import labs.pm.data.Food;
 import labs.pm.data.Product;
@@ -54,14 +52,6 @@ public class ProductFileManager implements ProductManager{
 
     private final MessageFormat reviewFormat = new MessageFormat(config.getString("review.data.format"));
     private final MessageFormat productFormat = new MessageFormat(config.getString("product.data.format"));
-    
-    private static final Map<String, ResourceFormatter> formatters = Map.of(
-        "en-GB", new ResourceFormatter(Locale.UK),
-        "en-US", new ResourceFormatter(Locale.US),
-        "fr-FR", new ResourceFormatter(Locale.FRANCE),
-        "ru-RU", new ResourceFormatter(new Locale("ru", "RU")),
-        "zh-CN", new ResourceFormatter(Locale.CHINA)
-    );
 
     private Map<Product, List<Review>> products = new HashMap<>();
 
